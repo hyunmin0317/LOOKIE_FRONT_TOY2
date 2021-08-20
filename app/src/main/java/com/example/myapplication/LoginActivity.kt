@@ -14,9 +14,18 @@ import retrofit2.Response
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
 
-        signup.setOnClickListener { startActivity(Intent(this@LoginActivity, SignupActivity::class.java)) }
+        if ((application as MasterApplication).checkIsLogin()) {
+            finish()
+            startActivity(Intent(this, MainActivity::class.java))
+        } else {
+            setContentView(R.layout.activity_login)
+            setupListener(this@LoginActivity)
+        }
+    }
+
+    fun setupListener(activity: Activity) {
+        signup.setOnClickListener { startActivity(Intent(activity, SignupActivity::class.java)) }
 
         login.setOnClickListener {
             val username = email_inputbox.text.toString()
@@ -31,15 +40,15 @@ class LoginActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val user = response.body()
                         val token = user!!.token!!
-                        saveUserToken(token, this@LoginActivity)
+                        saveUserToken(token, activity)
                         (application as MasterApplication).createRetrofit()
 
                         Toast.makeText(
-                            this@LoginActivity,
+                            activity,
                             "로그인 하셨습니다", Toast.LENGTH_LONG
                         ).show()
                         startActivity(
-                            Intent(this@LoginActivity, MainActivity::class.java)
+                            Intent(activity, MainActivity::class.java)
                         )
                     }
 

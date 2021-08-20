@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_signup.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,20 +23,14 @@ class SignupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if ((application as MasterApplication).checkIsLogin()) {
-            finish()
-            startActivity(Intent(this, MainActivity::class.java))
-        } else {
-            setContentView(R.layout.activity_signup)
-            initView(this@SignupActivity)
-            registerBtn.setOnClickListener { register(this@SignupActivity) }
-        }
+        setContentView(R.layout.activity_signup)
+        signup.setOnClickListener { register(this@SignupActivity) }
     }
 
     fun register(activity: Activity) {
-        val username = usernameView.text.toString()
-        val password1 = userPassword1View.text.toString()
-        val password2 = userPassword2View.text.toString()
+        val username = email_inputbox.text.toString()
+        val password1 = password1_inputbox.text.toString()
+        val password2 = password2_inputbox.text.toString()
 
         (application as MasterApplication).service.register(
             username, password1, password2
@@ -65,12 +60,5 @@ class SignupActivity : AppCompatActivity() {
         val editor = sp.edit()
         editor.putString("login_sp", token)
         editor.commit()
-    }
-
-    fun initView(activity: Activity) {
-        usernameView = activity.findViewById(R.id.email_inputbox)
-        userPassword1View = activity.findViewById(R.id.password1_inputbox)
-        userPassword2View = activity.findViewById(R.id.password2_inputbox)
-        registerBtn = activity.findViewById(R.id.signup)
     }
 }
