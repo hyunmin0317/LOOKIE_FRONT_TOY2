@@ -21,7 +21,7 @@ class MypageActivity : AppCompatActivity() {
             editor.commit()
             (application as MasterApplication).createRetrofit()
             finish()
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this, IntroActivity::class.java))
         }
 
         val email = getUserEmail()

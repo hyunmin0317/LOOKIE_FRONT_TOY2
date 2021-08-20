@@ -15,13 +15,8 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if ((application as MasterApplication).checkIsLogin()) {
-            finish()
-            startActivity(Intent(this, MypageActivity::class.java))
-        } else {
-            setContentView(R.layout.activity_login)
-            setupListener(this@LoginActivity)
-        }
+        setContentView(R.layout.activity_login)
+        setupListener(this@LoginActivity)
     }
 
     fun setupListener(activity: Activity) {
