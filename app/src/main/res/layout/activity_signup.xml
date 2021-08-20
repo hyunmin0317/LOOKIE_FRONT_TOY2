@@ -7,7 +7,7 @@
     android:background="#ffffff"
     android:orientation="vertical"
     tools:context=".LoginActivity">
-    
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
             android:textStyle="bold"/>
 
         <EditText
-            android:id="@+id/password_inputbox"
+            android:id="@+id/password1_inputbox"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_gravity="center"
