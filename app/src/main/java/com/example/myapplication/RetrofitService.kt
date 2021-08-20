@@ -9,7 +9,7 @@ interface RetrofitService {
     @POST("user/signup/")
     @FormUrlEncoded
     fun register(
-        @Field("username") usernmae: String,
+        @Field("username") username: String,
         @Field("password1") password1: String,
         @Field("password2") pasword2: String
     ): Call<User>

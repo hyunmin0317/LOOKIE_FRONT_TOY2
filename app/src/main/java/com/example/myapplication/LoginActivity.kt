@@ -17,7 +17,7 @@ class LoginActivity : AppCompatActivity() {
 
         if ((application as MasterApplication).checkIsLogin()) {
             finish()
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, MypageActivity::class.java))
         } else {
             setContentView(R.layout.activity_login)
             setupListener(this@LoginActivity)
@@ -33,34 +33,33 @@ class LoginActivity : AppCompatActivity() {
             (application as MasterApplication).service.login(
                 username, password
             ).enqueue(object : Callback<User> {
-                override fun onFailure(call: Call<User>, t: Throwable) {
-                }
 
                 override fun onResponse(call: Call<User>, response: Response<User>) {
                     if (response.isSuccessful) {
                         val user = response.body()
                         val token = user!!.token!!
-                        saveUserToken(token, activity)
+                        saveUserToken(username, token, activity)
                         (application as MasterApplication).createRetrofit()
 
-                        Toast.makeText(
-                            activity,
-                            "로그인 하셨습니다", Toast.LENGTH_LONG
-                        ).show()
-                        startActivity(
-                            Intent(activity, MainActivity::class.java)
-                        )
+                        Toast.makeText(activity, "로그인 하셨습니다.", Toast.LENGTH_LONG).show()
+                        startActivity(Intent(activity, MypageActivity::class.java))
+                    } else {
+                        Toast.makeText(activity, "가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.", Toast.LENGTH_LONG).show()
                     }
+                }
 
+                override fun onFailure(call: Call<User>, t: Throwable) {
+                    Toast.makeText(activity, "서버 오류", Toast.LENGTH_LONG).show()
                 }
             })
         }
     }
 
-    fun saveUserToken(token: String, activity: Activity) {
+    fun saveUserToken(email: String, token: String, activity: Activity) {
         val sp = activity.getSharedPreferences("login_sp", Context.MODE_PRIVATE)
         val editor = sp.edit()
-        editor.putString("login_sp", token)
+        editor.putString("email", email)
+        editor.putString("token", token)
         editor.commit()
     }
 }
