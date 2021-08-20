@@ -17,7 +17,7 @@
         android:text="To Do List"
         android:fontFamily="@font/nanumpen"
         android:textColor="#000000"
-        android:textSize="80dp" />
+        android:textSize="85dp" />
 
 
     <LinearLayout
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:padding="56dp">
+        android:padding="60dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,14 +33,15 @@
             android:text="이메일"
             android:layout_marginBottom="5dp"
             android:textColor="#000000"
+            android:textSize="16dp"
             android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/username_inpubox"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center"
             android:hint="아이디를 입력해주세요"
             android:backgroundTint="#000000" />
@@ -49,6 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="비밀번호"
+            android:textSize="16dp"
             android:layout_marginBottom="5dp"
             android:textColor="#000000"
             android:textStyle="bold"/>
@@ -56,7 +58,7 @@
         <EditText
             android:id="@+id/password_inpubox"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:gravity="center"
@@ -68,6 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
+            android:textSize="16dp"
             android:text="회원가입"
             android:textColor="#000000"
             android:textStyle="bold"/>
@@ -76,7 +79,7 @@
 
     <TextView
         android:id="@+id/login"
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@drawable/edittext_rounded_corner_rectangle"
