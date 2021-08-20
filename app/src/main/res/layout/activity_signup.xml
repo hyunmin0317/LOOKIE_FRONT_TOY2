@@ -7,8 +7,7 @@
     android:background="#ffffff"
     android:orientation="vertical"
     tools:context=".LoginActivity">
-
-
+    
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,13 +18,12 @@
         android:textColor="#000000"
         android:textSize="85dp" />
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:padding="30dp">
+        android:padding="55dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -37,9 +35,9 @@
             android:textStyle="bold"/>
 
         <EditText
-            android:id="@+id/username_inputbox"
+            android:id="@+id/email_inputbox"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:gravity="center"
@@ -58,7 +56,7 @@
         <EditText
             android:id="@+id/password_inputbox"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:gravity="center"
@@ -76,9 +74,9 @@
             android:textStyle="bold"/>
 
         <EditText
-            android:id="@+id/password_confirmbox"
+            android:id="@+id/password2_inputbox"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:gravity="center"
@@ -98,7 +96,7 @@
         <EditText
             android:id="@+id/name_inputbox"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:gravity="center"
@@ -118,7 +116,7 @@
         <EditText
             android:id="@+id/nickname_inputbox"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:gravity="center"
@@ -128,13 +126,12 @@
 
     </LinearLayout>
 
-
     <TextView
         android:id="@+id/signup"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/edittext_rounded_corner_rectangle"
+        android:background="@drawable/rounded_button"
         android:textColor="#ffffff"
         android:paddingLeft="32dp"
         android:gravity="center"
@@ -144,6 +141,5 @@
         android:text="회원가입"
         android:textSize="18dp"
         android:textStyle="bold" />
-
 
 </LinearLayout>
