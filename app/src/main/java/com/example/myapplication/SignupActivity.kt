@@ -36,9 +36,7 @@ class SignupActivity : AppCompatActivity() {
                     val token = user!!.token!!
                     saveUserToken(username, token, activity)
                     (application as MasterApplication).createRetrofit()
-                    activity.startActivity(
-                        Intent(activity, MypageActivity::class.java)
-                    )
+                    activity.startActivity(Intent(activity, MypageActivity::class.java))
                 } else {
                     if (password1!=password2) {
                         Toast.makeText(activity, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_LONG).show()
