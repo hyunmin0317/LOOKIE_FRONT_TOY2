@@ -17,7 +17,7 @@
         android:text="To Do List"
         android:fontFamily="@font/nanumpen"
         android:textColor="#000000"
-        android:textSize="85dp" />
+        android:textSize="90dp" />
 
 
     <LinearLayout

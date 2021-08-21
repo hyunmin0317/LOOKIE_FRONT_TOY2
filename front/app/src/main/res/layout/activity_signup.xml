@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:gravity="center"
-        android:text="To Do List"
+        android:text="회원가입"
         android:fontFamily="@font/nanumpen"
         android:textColor="#000000"
         android:textSize="85dp" />
@@ -139,7 +139,7 @@
         android:paddingTop="16dp"
         android:paddingRight="32dp"
         android:paddingBottom="16dp"
-        android:text="회원가입"
+        android:text="가입하기"
         android:textSize="18dp"
         android:textStyle="bold" />
 
