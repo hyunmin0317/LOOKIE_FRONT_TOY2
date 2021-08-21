@@ -10,8 +10,7 @@ interface RetrofitService {
     @FormUrlEncoded
     fun register(
         @Field("username") username: String,
-        @Field("password1") password1: String,
-        @Field("password2") password2: String
+        @Field("password") password: String
     ): Call<User>
 
 

@@ -4,6 +4,6 @@ from django.contrib import admin
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/", include("api.urls")),
+    path("user/", include("api.urls")),
     path("api/auth", include("knox.urls")),
 ]
