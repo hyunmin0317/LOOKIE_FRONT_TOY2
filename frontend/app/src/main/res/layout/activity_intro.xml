@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#ffffff"
     android:orientation="horizontal"
-    tools:context=".IntroActivity">
+    tools:context=".user.IntroActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

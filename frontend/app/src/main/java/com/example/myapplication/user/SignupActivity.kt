@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.user
 
 import android.app.Activity
 import android.content.Context
@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.myapplication.R
 import kotlinx.android.synthetic.main.activity_signup.*
 import retrofit2.Call
 import retrofit2.Callback
