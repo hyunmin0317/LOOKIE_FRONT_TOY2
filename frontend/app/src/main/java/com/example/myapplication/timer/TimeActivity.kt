@@ -5,9 +5,9 @@ import android.os.Handler
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
-import kotlinx.android.synthetic.main.activity_timer.*
+import kotlinx.android.synthetic.main.activity_time.*
 
-class TimerActivity : AppCompatActivity() {
+class TimeActivity : AppCompatActivity() {
 
     // 핸들러사용
     val handler = Handler()
@@ -16,7 +16,7 @@ class TimerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_timer)
+        setContentView(R.layout.activity_time)
 
         //핸들러 - 1초마다 실행되게 함
         val runnable = object : Runnable {

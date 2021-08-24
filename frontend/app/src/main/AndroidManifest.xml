@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
-        <activity android:name=".timer.TimerActivity">
+        <activity android:name=".timer.TimeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
