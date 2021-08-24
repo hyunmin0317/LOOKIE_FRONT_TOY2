@@ -1,11 +1,14 @@
 package com.example.myapplication.timer
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import com.example.myapplication.R
 import kotlinx.android.synthetic.main.activity_timer.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class TimerActivity : AppCompatActivity() {
@@ -18,8 +21,31 @@ class TimerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
-        btn_stop.visibility = View.GONE
 
+        var now = System.currentTimeMillis()
+        var date = Date(now)
+        var format = SimpleDateFormat("yyyy.MM.dd")
+        var todayDate = format.format(date)
+
+        val sp = getSharedPreferences("data", Context.MODE_PRIVATE)
+        val editor = sp.edit()
+
+        var todaysp = sp.getString("date", "null")
+        var timesp = sp.getString("time", "null")
+        if (todaysp != "null") {
+            if (todaysp != todayDate) {
+                all_time.text = "00:00:00"
+                editor.putString("date", todayDate)
+                editor.commit()
+            } else {
+                if (timesp != "null") {
+                    timeAll = timesp!!.toInt()
+                }
+            }
+        }
+        all_time.text = timeToText(timeAll)
+        today.text = todayDate
+        btn_stop.visibility = View.GONE
 
         //핸들러 - 1초마다 실행되게 함
         val runnable = object : Runnable {
@@ -34,6 +60,8 @@ class TimerActivity : AppCompatActivity() {
         }
 
         btn_start.setOnClickListener {
+            editor.putString("date", todayDate)
+            editor.commit()
             it.visibility = View.GONE
             btn_stop.visibility = View.VISIBLE
             handler.post(runnable)
@@ -43,7 +71,7 @@ class TimerActivity : AppCompatActivity() {
             it.visibility = View.GONE
             btn_start.visibility = View.VISIBLE
             count++
-            recordView.setText(recordView.text.toString()+ count.toString()+"회차: " + time.text.toString() + "\n")
+            recordView.text = recordView.text.toString()+ count.toString()+"회차: " + time.text.toString() + "\n"
             time.text = ""
             timeAll += timeValue
             timeValue = 0
@@ -51,6 +79,8 @@ class TimerActivity : AppCompatActivity() {
             timeToText()?.let {
                 time.text = it
             }
+            editor.putString("time", timeAll.toString())
+            editor.commit()
             all_time.text = timeToText(timeAll)
         }
     }
