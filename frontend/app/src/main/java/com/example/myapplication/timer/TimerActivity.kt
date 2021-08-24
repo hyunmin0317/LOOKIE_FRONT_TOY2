@@ -1,11 +1,11 @@
-package com.example.myapplication.timer
+package com.example.myapplication
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
-import com.example.myapplication.R
 import kotlinx.android.synthetic.main.activity_timer.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -82,6 +82,9 @@ class TimerActivity : AppCompatActivity() {
             editor.putString("time", timeAll.toString())
             editor.commit()
             all_time.text = timeToText(timeAll)
+        }
+
+        mypage.setOnClickListener { startActivity(Intent(this@TimerActivity, MypageActivity::class.java))
         }
     }
 

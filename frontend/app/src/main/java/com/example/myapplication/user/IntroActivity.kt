@@ -1,10 +1,9 @@
-package com.example.myapplication.user
+package com.example.myapplication
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.example.myapplication.R
 
 class IntroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +13,7 @@ class IntroActivity : AppCompatActivity() {
         var handler = Handler()
         if ((application as MasterApplication).checkIsLogin()) {
             handler.postDelayed({
-                var intent = Intent(this, MypageActivity::class.java)
+                var intent = Intent(this, TimerActivity::class.java)
                 startActivity(intent)
             }, 1000)
         } else {

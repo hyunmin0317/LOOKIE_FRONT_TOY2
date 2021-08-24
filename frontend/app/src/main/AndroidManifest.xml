@@ -14,20 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
-        <activity android:name=".timer.TimerActivity">
+        <activity android:name=".user.IntroActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".timer.TimeActivity">
-
-        </activity>
-        <activity android:name=".user.IntroActivity" />
         <activity android:name=".user.SignupActivity" />
         <activity android:name=".user.LoginActivity" />
         <activity android:name=".user.MypageActivity" />
+        <activity android:name=".timer.TimerActivity" />
     </application>
 
 </manifest>
