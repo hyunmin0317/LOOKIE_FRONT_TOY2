@@ -1,40 +1,55 @@
 package com.example.myapplication.timer
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
-import android.os.Message
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
 import kotlinx.android.synthetic.main.activity_timer.*
 
 class TimerActivity : AppCompatActivity() {
 
-    var timeThread: Thread? = null
-    var isRunning: Boolean = true
+    // 핸들러사용
+    val handler = Handler()
+    var isRunning = true
+    var timeValue = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
 
+        //핸들러 - 1초마다 실행되게 함
+        val runnable = object : Runnable {
+            override fun run() {
+                timeValue ++
+                //TextView 업데이트 하기
+                timeToText(timeValue)?.let {
+
+                    timeView.text = it
+                }
+                handler.postDelayed(this, 1000)
+            }
+        }
 
         btn_start.setOnClickListener {
+            it.visibility = View.GONE
             btn_stop.visibility = View.VISIBLE
             btn_record.visibility = View.VISIBLE
             btn_pause.visibility = View.VISIBLE
-
-            timeThread = Thread(timeThread)
-            timeThread!!.start()
+            handler.post(runnable)
         }
 
         btn_stop.setOnClickListener {
-            btn_stop.visibility = View.GONE
-            btn_record.visibility = View.VISIBLE
+            it.visibility = View.GONE
+            btn_start.visibility = View.VISIBLE
+            btn_record.visibility = View.GONE
             btn_pause.visibility = View.GONE
             recordView.text = ""
-            timeThread?.interrupt()
+            handler.removeCallbacks(runnable)
+            timeValue = 0
+            timeToText()?.let {
+                timeView.text = it
+            }
         }
 
         btn_record.setOnClickListener {
@@ -43,53 +58,26 @@ class TimerActivity : AppCompatActivity() {
 
         btn_pause.setOnClickListener {
             isRunning = !isRunning
-            if (isRunning)
+            if (isRunning) {
+                handler.post(runnable)
                 btn_pause.setText("일시정지")
-            else
+            } else {
+                handler.removeCallbacks(runnable)
                 btn_pause.setText("시작")
-        }
-
-        val handler: Handler = object : Handler() {
-            override fun handleMessage(msg: Message) {
-                val mSec = msg.arg1 % 100
-                val sec = msg.arg1 / 100 % 60
-                val min = msg.arg1 / 100 / 60
-                val hour = msg.arg1 / 100 / 360
-                //1000이 1초 1000*60 은 1분 1000*60*10은 10분 1000*60*60은 한시간
-                @SuppressLint("DefaultLocale") val result =
-                    String.format("%02d:%02d:%02d:%02d", hour, min, sec, mSec)
-                if (result == "00:01:15:00") {
-                    Toast.makeText(this@TimerActivity, "1분 15초가 지났습니다.", Toast.LENGTH_SHORT).show()
-                }
-                timeView.setText(result)
             }
         }
+    }
 
-        class timeThread : Runnable {
-            override fun run() {
-                var i = 0
-                while (true) {
-                    while (isRunning) { //일시정지를 누르면 멈춤
-                        val msg = Message()
-                        msg.arg1 = i++
-                        handler.sendMessage(msg)
-                        try {
-                            Thread.sleep(10)
-                        } catch (e: InterruptedException) {
-                            e.printStackTrace()
-                            runOnUiThread {
-                                timeView.setText("")
-                                timeView.setText("00:00:00:00")
-                            }
-                            return  // 인터럽트 받을 경우 return
-                        }
-                    }
-                }
-            }
+    private fun timeToText(time: Int = 0) : String?{
+        return if (time < 0) {
+            null
+        } else if (time == 0) {
+            "00:00:00"
+        } else {
+            val h = time / 3600
+            val m = time % 3600 / 60
+            val s = time % 60
+            "%1$02d:%2$02d:%3$02d".format(h, m, s)
         }
-
-
-
-
     }
 }
