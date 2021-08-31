@@ -25,6 +25,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".MypageActivity" />
         <activity android:name=".TimerActivity" />
+        <activity android:name=".Todo_main" />
     </application>
 
 </manifest>

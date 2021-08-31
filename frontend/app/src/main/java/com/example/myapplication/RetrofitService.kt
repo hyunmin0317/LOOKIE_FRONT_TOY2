@@ -20,14 +20,4 @@ interface RetrofitService {
         @Field("username") username: String,
         @Field("password") password: String
     ): Call<User>
-
-    @POST("timer/")
-    fun timer(
-        @Body timer: Timer
-    ): Call<Timer>
-
-    @PUT("timer")
-    fun status(
-        @Query("status") status: String,
-    ): Call<Timer>
 }
