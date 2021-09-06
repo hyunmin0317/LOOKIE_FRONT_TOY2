@@ -39,25 +39,25 @@ class SignupActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         Toast.makeText(activity, "가입에 성공하였습니다.", Toast.LENGTH_LONG).show()
 
-                        // 로그인
-                        var login = Login(email = email, password = password1)
-                        (application as MasterApplication).service.login(login).enqueue(object : Callback<User> {
-
-                            override fun onResponse(call: Call<User>, response: Response<User>) {
-                                if (response.isSuccessful) {
-                                    val user = response.body()
-                                    val token = user!!.token!!
-                                    saveUserToken(email, token, activity)
-                                    (application as MasterApplication).createRetrofit()
-                                    Toast.makeText(activity, "로그인 하셨습니다.", Toast.LENGTH_SHORT).show()
-                                    startActivity(Intent(activity, TimerActivity::class.java))
-                                }
-                            }
-
-                            override fun onFailure(call: Call<User>, t: Throwable) {
-                                Toast.makeText(activity, "서버 오류", Toast.LENGTH_SHORT).show()
-                            }
-                        })
+//                        // 로그인
+//                        var login = Login(email = email, password = password1)
+//                        (application as MasterApplication).service.login(login).enqueue(object : Callback<User> {
+//
+//                            override fun onResponse(call: Call<User>, response: Response<User>) {
+//                                if (response.isSuccessful) {
+//                                    val user = response.body()
+//                                    val token = user!!.token!!
+//                                    saveUserToken(email, token, activity)
+//                                    (application as MasterApplication).createRetrofit()
+//                                    Toast.makeText(activity, "로그인 하셨습니다.", Toast.LENGTH_SHORT).show()
+//                                    startActivity(Intent(activity, TimerActivity::class.java))
+//                                }
+//                            }
+//
+//                            override fun onFailure(call: Call<User>, t: Throwable) {
+//                                Toast.makeText(activity, "서버 오류", Toast.LENGTH_SHORT).show()
+//                            }
+//                        })
 
                     } else {
                         Toast.makeText(activity, "사용할 수 없는 이메일입니다.", Toast.LENGTH_LONG).show()

@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="100dp"
         android:gravity="center"
         android:text="To Do List"
         android:fontFamily="@font/font"
@@ -28,7 +28,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="이메일"
+            android:text="아이디"
             android:fontFamily="@font/font"
             android:layout_marginBottom="5dp"
             android:textColor="#000000"
@@ -36,13 +36,13 @@
             android:textStyle="bold"/>
 
         <EditText
-            android:id="@+id/email_inputbox"
+            android:id="@+id/username_inputbox"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center"
-            android:hint="이메일를 입력해 주세요."
+            android:hint="아이디를 입력해 주세요."
             android:background="@drawable/edittext_rounded_corner_rectangle" />
 
         <TextView
@@ -58,9 +58,9 @@
         <EditText
             android:id="@+id/password1_inputbox"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="10dp"
             android:gravity="center"
             android:inputType="textPassword"
             android:hint="비밀번호를 입력해 주세요."
@@ -80,33 +80,12 @@
         <EditText
             android:id="@+id/password2_inputbox"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="10dp"
             android:inputType="textPassword"
             android:hint="비밀번호를 다시 입력해 주세요."
-            android:background="@drawable/edittext_rounded_corner_rectangle" />
-
-        <TextView
-            android:id="@+id/username_inputbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="이름"
-            android:fontFamily="@font/font"
-            android:textSize="16dp"
-            android:layout_marginBottom="5dp"
-            android:textColor="#000000"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:id="@+id/name_inputbox"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:hint="이름을 입력해 주세요."
             android:background="@drawable/edittext_rounded_corner_rectangle" />
 
         <TextView

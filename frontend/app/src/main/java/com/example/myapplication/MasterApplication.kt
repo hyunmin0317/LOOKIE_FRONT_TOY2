@@ -50,7 +50,7 @@ class MasterApplication : Application() {
 //        "http://180.230.121.23/"
 //        "http://10.0.2.2:8000/"
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://180.230.121.23/")
+            .baseUrl("http://10.0.2.2:8000/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
