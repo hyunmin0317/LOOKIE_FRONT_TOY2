@@ -14,30 +14,59 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_gravity="right"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="오늘의 누적 공부량"
-                android:textSize="15dp"
-                android:textColor="#ffffff" />
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_button"
+                    android:textColor="#ffffff"
+                    android:text="로그아웃"
+                    android:fontFamily="@font/font"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/all_time"
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="25dp"
-                android:textStyle="bold"
-                android:text="00:00:00"
-                android:textColor="#ffffff" />
+                android:padding="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="오늘의 누적 공부량"
+                    android:fontFamily="@font/font"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/all_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:text="00:00:00"
+                    android:fontFamily="@font/font"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,6 +81,7 @@
                 android:layout_gravity="center"
                 android:textSize="25dp"
                 android:text="0000.00.00"
+                android:fontFamily="@font/font"
                 android:textColor="#ffffff" />
 
             <TextView
@@ -62,6 +92,7 @@
                 android:textSize="50dp"
                 android:textStyle="bold"
                 android:text="00:00:00"
+                android:fontFamily="@font/font"
                 android:textColor="#ffffff" />
 
             <RelativeLayout
@@ -88,15 +119,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:text="기록"
+        android:fontFamily="@font/font"
         android:textColor="@color/myBlack"
         android:textSize="22dp" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="3dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="5dp"
@@ -115,6 +147,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
             android:text=""
+            android:fontFamily="@font/font"
             android:textColor="@color/myBlack"
             android:textSize="22dp" />
     </ScrollView>
@@ -134,7 +167,7 @@
             <TextView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:id="@+id/todo"
+                android:id="@+id/todolist_button"
                 android:background="@drawable/todo_icon" />
         </LinearLayout>
         <LinearLayout
@@ -145,7 +178,7 @@
             <TextView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:id="@+id/home"
+                android:id="@+id/home_button"
                 android:background="@drawable/free_icon_house_2739301" />
         </LinearLayout>
         <LinearLayout
@@ -156,7 +189,7 @@
             <TextView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:id="@+id/mypage"
+                android:id="@+id/friend_button"
                 android:background="@drawable/free_icon_people_2427463" />
         </LinearLayout>
     </LinearLayout>

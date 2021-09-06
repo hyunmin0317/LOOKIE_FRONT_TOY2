@@ -17,12 +17,24 @@
 
         <TextView
             android:id="@+id/plan_content"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="match_parent"
             android:text="오늘 할 일 입력"
             android:textSize="25dp"
             android:gravity="center"
             android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:backgroundTint="#ffffff"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:text="x"
+            android:layout_marginEnd="10dp"
+            android:textSize="15dp"/>
 
     </LinearLayout>
 

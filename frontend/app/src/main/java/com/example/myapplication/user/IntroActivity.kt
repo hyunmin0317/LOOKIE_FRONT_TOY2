@@ -11,17 +11,9 @@ class IntroActivity : AppCompatActivity() {
         setContentView(R.layout.activity_intro)
 
         var handler = Handler()
-        if ((application as MasterApplication).checkIsLogin()) {
-            handler.postDelayed({
-                var intent = Intent(this, TimerActivity::class.java)
-                startActivity(intent)
-            }, 1000)
-        } else {
-            handler.postDelayed({
-                var intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-            }, 1000)
-        }
+        handler.postDelayed({
+            startActivity(Intent(this@IntroActivity, LoginActivity::class.java))
+        }, 1000)
     }
 
     override fun onPause() {

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Todo_main">
+    tools:context=".todo.Todo_main">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,10 +37,9 @@
     </LinearLayout>
 
     <ScrollView
-        android:layout_weight="9"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingTop="10dp"
+        android:layout_weight="8"
         android:fillViewport="true">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -65,7 +64,7 @@
             <TextView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:id="@+id/todo"
+                android:id="@+id/todolist_button"
                 android:background="@drawable/todo_icon" />
         </LinearLayout>
         <LinearLayout
@@ -76,7 +75,7 @@
             <TextView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:id="@+id/home"
+                android:id="@+id/home_button"
                 android:background="@drawable/free_icon_house_2739301" />
         </LinearLayout>
         <LinearLayout
@@ -87,7 +86,7 @@
             <TextView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:id="@+id/mypage"
+                android:id="@+id/friend_button"
                 android:background="@drawable/free_icon_people_2427463" />
         </LinearLayout>
     </LinearLayout>

@@ -2,6 +2,8 @@ package com.example.myapplication
 
 import android.app.Application
 import android.content.Context
+import com.example.myapplication.friend.APIS
+import com.example.myapplication.todo.APIS_todo
 import com.facebook.stetho.Stetho
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.Interceptor
@@ -13,6 +15,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MasterApplication : Application() {
 
     lateinit var service: RetrofitService
+    lateinit var api: APIS
+    lateinit var api_todo: APIS_todo
 
     override fun onCreate() {
         super.onCreate()
@@ -29,7 +33,7 @@ class MasterApplication : Application() {
             if (checkIsLogin()) {
                 getUserToken()?.let { token ->
                     val requeset = original.newBuilder()
-                        .header("Authorization", "token " + token)
+                        .header("X-AUTH-TOKEN", token)
                         .build()
                     it.proceed(requeset)
                 }
@@ -43,13 +47,17 @@ class MasterApplication : Application() {
             .addNetworkInterceptor(StethoInterceptor())
             .build()
 
+//        "http://180.230.121.23/"
+//        "http://10.0.2.2:8000/"
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://lookie.pythonanywhere.com/")
+            .baseUrl("http://180.230.121.23/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
 
         service = retrofit.create(RetrofitService::class.java)
+        api = retrofit.create(APIS::class.java)
+        api_todo = retrofit.create(APIS_todo::class.java)
     }
 
     fun checkIsLogin(): Boolean {

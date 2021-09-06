@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 네비게이션바 아이콘 선택시 색상 변경 -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="#000000" android:state_checked="true" />
+    <item android:color="#80000000" android:state_checked="false" />
+</selector>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="friend_add_list_size">22dp</dimen> <!-- 친구추가 리스트 글자 -->
+    <dimen name="friend_add_list_size2">20dp</dimen> <!-- 친구추가 리스트 글자 -->
+</resources>

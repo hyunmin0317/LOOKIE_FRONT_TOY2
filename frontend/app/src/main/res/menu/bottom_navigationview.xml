@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 네비게이션바 아이콘 설정 -->
+
+    <item
+        android:id="@+id/todo"
+        android:icon="@drawable/todo_icon"
+        android:title="todo list" />
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/free_icon_house_2739301"
+        android:title="home" />
+
+    <item
+        android:id="@+id/friend"
+        android:icon="@drawable/free_icon_people_2427463"
+        android:title="friend" />
+
+
+</menu>
