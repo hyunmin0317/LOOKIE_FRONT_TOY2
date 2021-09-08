@@ -1,8 +1,8 @@
-package com.example.myapplication.user
+package com.example.myapplication
 
 import java.io.Serializable
 
 class Login(
-    var email : String? = null,
-    var password : String? = null
+    var username : String? = null,
+    var token : String? = null
 ):Serializable

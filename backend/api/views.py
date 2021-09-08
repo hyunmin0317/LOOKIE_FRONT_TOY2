@@ -6,12 +6,6 @@ from rest_framework.decorators import api_view
 from knox.models import AuthToken
 from .serializers import CreateUserSerializer, UserSerializer, LoginUserSerializer
 
-# Create your views here.
-@api_view(["GET"])
-def HelloAPI(request):
-    return Response("hello world!")
-
-
 class RegistrationAPI(generics.GenericAPIView):
     serializer_class = CreateUserSerializer
 
@@ -37,10 +31,10 @@ class LoginAPI(generics.GenericAPIView):
         user = serializer.validated_data
         return Response(
             {
-                "token": AuthToken.objects.create(user)[1],
+                "username": user.username,
+                "token": AuthToken.objects.create(user)[1]
             }
         )
-
 
 class UserAPI(generics.RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticated]

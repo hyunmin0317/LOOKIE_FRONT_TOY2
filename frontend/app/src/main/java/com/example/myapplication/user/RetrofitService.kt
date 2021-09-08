@@ -1,7 +1,6 @@
 package com.example.myapplication
 
-import com.example.myapplication.user.Login
-import com.example.myapplication.user.Signup
+import com.example.myapplication.user.User
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -9,15 +8,15 @@ import retrofit2.http.*
 interface RetrofitService {
 
     @POST("user/signup")
-    fun register(
-        @Body signup: Signup
-    ): Call<Signup>
+    fun signup(
+        @Body user: User
+    ): Call<Login>
 
 
     @POST("user/signin")
     fun login(
-        @Body login: Login
-    ): Call<User>
+        @Body user: User
+    ): Call<Login>
 
     @POST("timer")
     fun timer(

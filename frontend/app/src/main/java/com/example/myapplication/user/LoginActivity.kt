@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.myapplication.*
-import com.example.myapplication.user.Login
+import com.example.myapplication.user.User
 import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,17 +25,17 @@ class LoginActivity : AppCompatActivity() {
         signup.setOnClickListener { startActivity(Intent(activity, SignupActivity::class.java)) }
 
         login.setOnClickListener {
-            val email = email_inputbox.text.toString()
+            val username = username_inputbox.text.toString()
             val password = password_inputbox.text.toString()
 
-            var login = Login(email = email, password = password)
-            (application as MasterApplication).service.login(login).enqueue(object : Callback<User> {
+            var user = User(username = username, password = password)
+            (application as MasterApplication).service.login(user).enqueue(object : Callback<Login> {
 
-                override fun onResponse(call: Call<User>, response: Response<User>) {
+                override fun onResponse(call: Call<Login>, response: Response<Login>) {
                     if (response.isSuccessful) {
                         val user = response.body()
                         val token = user!!.token!!
-                        saveUserToken(email, token, activity)
+                        saveUserToken(username, token, activity)
                         (application as MasterApplication).createRetrofit()
 
                         Toast.makeText(activity, "로그인 하셨습니다.", Toast.LENGTH_SHORT).show()
@@ -46,17 +46,17 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
 
-                override fun onFailure(call: Call<User>, t: Throwable) {
+                override fun onFailure(call: Call<Login>, t: Throwable) {
                     Toast.makeText(activity, "서버 오류", Toast.LENGTH_SHORT).show()
                 }
             })
         }
     }
 
-    fun saveUserToken(email: String, token: String, activity: Activity) {
+    fun saveUserToken(username: String, token: String, activity: Activity) {
         val sp = activity.getSharedPreferences("login_sp", Context.MODE_PRIVATE)
         val editor = sp.edit()
-        editor.putString("email", email)
+        editor.putString("email", username)
         editor.putString("token", token)
         editor.commit()
     }
