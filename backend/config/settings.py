@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'knox',
     'api.apps.ApiConfig',
-    'timer.apps.TimerConfig',
 ]
 
 MIDDLEWARE = [

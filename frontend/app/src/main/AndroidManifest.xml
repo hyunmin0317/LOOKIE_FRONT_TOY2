@@ -25,7 +25,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".TimerActivity" />
         <activity android:name=".Friend_add" />
-        <activity android:name=".Friend_main" />
+        <activity android:name=".MypageActivity" />
         <activity android:name=".todo.Todo_main"/>
 
     </application>
